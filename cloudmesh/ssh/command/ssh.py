@@ -128,11 +128,6 @@ class SshCommand(PluginCommand):
                 identity=key,
                 user=user)
 
-        elif arguments.config and arguments.delete:
-            # ssh config delete NAME
-
-            raise NotImplementedError
-
         elif arguments.config and arguments.add:
             # ssh host add NAME
 
@@ -145,4 +140,11 @@ class SshCommand(PluginCommand):
             # ssh host delete NAME
 
             name = arguments.NAME
-            os.system("ssh-keygen -R {name}")
+            try:
+                os.system("ssh-keygen -R {name}")
+            except:
+                pass
+            print ("LLLL")
+            ssh_config.delete(name)
+
+
