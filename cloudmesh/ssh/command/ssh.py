@@ -10,7 +10,6 @@ from cloudmesh.shell.command import map_parameters
 from cloudmesh.shell.command import PluginCommand
 from cloudmesh.shell.command import command
 
-from pprint import pprint
 
 class SshCommand(PluginCommand):
 
@@ -96,7 +95,6 @@ class SshCommand(PluginCommand):
                     hosts[host]["IdentityFile"] = hosts[host]["Identityfile"]
                     del hosts[host]["Identityfile"]
 
-
             print(Printer.write(hosts,
                                 order=['host', 'Hostname', 'User', 'IdentityFile']))
 
@@ -148,4 +146,3 @@ class SshCommand(PluginCommand):
 
             name = arguments.NAME
             os.system("ssh-keygen -R {name}")
-
