@@ -49,33 +49,24 @@ class SshCommand(PluginCommand):
                 ssh config add NAME IP [USER] [KEY]
                     registers a host i ~/.ssh/config file
                     Parameters are attribute=value pairs
-                    Note: Note yet implemented
 
-                ssh [--name=VMs] [--user=USERs] [COMMAND]
-                    executes the command on the named hosts. If user is
-                    specified and is greater than 1, it must be specified for
-                    each vm. If only one username is specified it is used for
-                    all vms. However, as the user is typically specified in the
-                    cloudmesh database, you probably do not have to specify
-                    it as it is automatically found.
+                ssh config delete NAME
+                    deletes the named host from the ssh config file
 
             Examples:
 
-                 ssh config add blue 192.168.1.245 blue
+                 ssh config add blue 192.168.1.245 gregor
 
                      Adds the following to the !/.ssh/config file
 
                      Host blue
                           HostName 192.168.1.245
-                          User blue
+                          User gergor
                           IdentityFile ~/.ssh/id_rsa.pub
 
         """
 
-        map_parameters(arguments,
-                       "name",
-                       "user",
-                       "output")
+        map_parameters(arguments, "output")
 
         if arguments.config and arguments.list:
             # ssh config list [--output=OUTPUT]"
