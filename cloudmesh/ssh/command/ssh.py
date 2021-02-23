@@ -32,22 +32,19 @@ class SshCommand(PluginCommand):
                           parameters to the ssh config file.  if the
                           resource exists, it will be overwritten. The
                           information will be written in /.ssh/config
+              USER        The username for the ssh resource
+              KEY         The location of the public keye used for
+                          authentication to the host
 
             Options:
-               -v                verbose mode
                --output=OUTPUT   the format in which this list is given
                                  formats includes cat, table, json, yaml,
                                  dict. If cat is used, it is just printed as
                                  is. [default: table]
-               --user=USERs      overwrites the username that is
-                                 specified in ~/.ssh/config
-               --name=CMs        the names of the VMS to execute the
-                                 command on
 
             Description:
                 ssh config list
-                    lists the hostsnames that are present in the
-                    ~/.ssh/config file
+                    lists the hostsnames that are present in the ~/.ssh/config file
 
                 ssh config add NAME IP [USER] [KEY]
                     registers a host i ~/.ssh/config file
@@ -122,11 +119,7 @@ class SshCommand(PluginCommand):
                 Console.error("Host already in ~/.ssh/config")
                 return ""
 
-            hosts.generate(
-                host=name,
-                hostname=ip,
-                identity=key,
-                user=user)
+            hosts.generate(host=name, hostname=ip, identity=key, user=user)
 
         elif arguments.config and arguments.add:
             # ssh host add NAME
