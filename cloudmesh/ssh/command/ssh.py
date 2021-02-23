@@ -144,7 +144,6 @@ class SshCommand(PluginCommand):
                 os.system("ssh-keygen -R {name}")
             except:
                 pass
-            print ("LLLL")
             ssh_config.delete(name)
 
 
