@@ -6,9 +6,9 @@ from cloudmesh.common.parameter import Parameter
 from cloudmesh.common.ssh.ssh_config import ssh_config
 from cloudmesh.common.util import path_expand
 from cloudmesh.common.variables import Variables
-from cloudmesh.shell.command import map_parameters
 from cloudmesh.shell.command import PluginCommand
 from cloudmesh.shell.command import command
+from cloudmesh.shell.command import map_parameters
 
 
 class SshCommand(PluginCommand):
